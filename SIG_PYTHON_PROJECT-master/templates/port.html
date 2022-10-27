@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+
+<p class="text-center font-weight-bold display-3 text-danger font-italic">PROJECTS</p>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    {% for post in var1 %}
+    <div class="post-wrapper col-sm-4 py-1">
+        <div class="card-post box-shadow">
+            <a href="{{post.url}}">
+                <img class="card-img-top h-50" src="/static/images/projects/{{post.id}}.jpg" alt="{{post.title}}">
+            </a>
+            <div class="card-body">
+
+                <a href="{{post.url}}">
+                    <div class="card-title mb-3">{{post.title|truncatewords:"3"}}</div>
+                </a>
+                <a href="{{post.url}}">
+
+                    <div class="card-text">
+                        {{post.body|truncatewords:"30"}}
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
